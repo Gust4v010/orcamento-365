@@ -3,30 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orçamento 365 - Versão Premium v4.0</title>
+    <title>Orçamento 365 - Controle Premium v5.0</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-[#0b0f19] text-slate-100 font-sans min-h-screen flex flex-col">
+<body class="font-sans min-h-screen flex flex-col">
 
-    <div id="tela-login" class="fixed inset-0 bg-[#070a12] z-50 flex items-center justify-center p-4">
-        <div class="bg-slate-900 border border-slate-800 p-8 rounded-2xl shadow-2xl max-w-sm w-full space-y-6 text-center animate-fade">
-            <div>
+    <div id="landing-page" class="flex flex-col min-h-screen animate-fade z-10">
+        <nav class="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center w-full relative z-20">
+            <div class="flex items-center gap-2">
                 <span class="text-2xl font-black tracking-wider text-blue-500 uppercase">Orçamento<span class="text-white">365</span></span>
-                <p class="text-xs text-slate-500 mt-1">Insira suas credenciais acadêmicas para acessar</p>
+            </div>
+            <button id="btn-abrir-login" class="text-sm font-bold border border-slate-700 bg-slate-800 text-white hover:bg-blue-600 hover:border-blue-500 py-2.5 px-6 rounded-xl transition-all shadow-lg active:scale-95">
+                Acessar Plataforma
+            </button>
+        </nav>
+
+        <header class="flex-grow flex flex-col justify-center items-center text-center px-4 py-16 relative">
+            <div class="absolute top-10 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-blue-600/20 blur-[120px] rounded-full pointer-events-none"></div>
+            <h1 class="text-5xl md:text-7xl font-black text-white max-w-4xl tracking-tight z-10 leading-tight">
+                Domine o seu <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">futuro financeiro</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-400 mt-6 max-w-2xl z-10">
+                O orçamento pessoal é a ferramenta indispensável para organizar suas finanças, evitar surpresas e alcançar metas com segurança.
+            </p>
+        </header>
+
+        <section class="py-12 bg-slate-900/60 border-t border-b border-slate-800/60 relative z-20">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <h2 class="text-2xl font-black text-white mb-8">Aprenda a cuidar do seu dinheiro</h2>
+                
+                <div class="relative overflow-hidden rounded-2xl border border-slate-700 bg-slate-800/50 shadow-2xl">
+                    <div id="carousel-landing" class="flex transition-transform duration-500 ease-in-out w-[300%]">
+                        <div class="w-1/3 flex-shrink-0 p-12 flex flex-col items-center justify-center">
+                            <span class="text-5xl mb-4">📖</span>
+                            <h3 class="text-2xl font-bold text-white mb-2">O que é Orçamento Pessoal?</h3>
+                            <p class="text-slate-400 mb-6 text-sm max-w-md">Entenda os conceitos básicos e a importância de mapear os seus ganhos e gastos mensais.</p>
+                            <button id="btn-ler-artigo-1" class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2.5 rounded-lg font-bold transition-all shadow-lg">Ler Artigo Completo</button>
+                        </div>
+                        <div class="w-1/3 flex-shrink-0 p-12 flex flex-col items-center justify-center">
+                            <span class="text-5xl mb-4">🎯</span>
+                            <h3 class="text-2xl font-bold text-white mb-2">Como definir Metas?</h3>
+                            <p class="text-slate-400 mb-6 text-sm max-w-md">Aprenda a estipular limites de gastos para alcançar os seus sonhos mais rápido.</p>
+                            <button id="btn-ler-artigo-2" class="bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-2.5 rounded-lg font-bold transition-all shadow-lg">Ler Artigo Completo</button>
+                        </div>
+                        <div class="w-1/3 flex-shrink-0 p-12 flex flex-col items-center justify-center">
+                            <span class="text-5xl mb-4">🛡️</span>
+                            <h3 class="text-2xl font-bold text-white mb-2">Fundo de Emergência</h3>
+                            <p class="text-slate-400 mb-6 text-sm max-w-md">Por que é crucial ter capital guardado para imprevistos e como começar hoje mesmo.</p>
+                            <button id="btn-ler-artigo-3" class="bg-purple-600 hover:bg-purple-500 text-white px-6 py-2.5 rounded-lg font-bold transition-all shadow-lg">Ler Artigo Completo</button>
+                        </div>
+                    </div>
+                    <button id="btn-prev-landing" class="absolute left-4 top-1/2 -translate-y-1/2 bg-slate-900/80 text-white p-3 rounded-full hover:bg-blue-600 transition-colors">❮</button>
+                    <button id="btn-next-landing" class="absolute right-4 top-1/2 -translate-y-1/2 bg-slate-900/80 text-white p-3 rounded-full hover:bg-blue-600 transition-colors">❯</button>
+                </div>
+            </div>
+        </section>
+
+        <footer class="py-8 text-center border-t border-slate-800/60 mt-auto bg-slate-950">
+            <p class="text-slate-500 text-sm font-medium">&copy; 2026 Gustavo Regueira. Todos os direitos reservados.</p>
+            <p class="text-slate-600 text-xs mt-1">Nenhuma parte desta aplicação pode ser reproduzida sem autorização.</p>
+        </footer>
+    </div>
+
+    <div id="pagina-artigo" class="hidden flex-col min-h-screen bg-[#0b0f19] z-50 absolute inset-0 overflow-y-auto animate-fade">
+        <div class="max-w-3xl mx-auto px-6 pt-12 pb-12 w-full flex-grow">
+            <button id="btn-fechar-artigo" class="text-slate-400 hover:text-white mb-8 flex items-center gap-2 transition-colors">← Voltar para a página inicial</button>
+            <span class="bg-blue-600/20 text-blue-400 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Educação Financeira</span>
+            
+            <div id="artigo-1" class="hidden mt-4">
+                <h1 class="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">Orçamento pessoal: o que é, importância, quando e como fazer</h1>
+                <div class="prose prose-invert max-w-none text-slate-300 space-y-6 text-lg leading-relaxed">
+                    <p>O orçamento pessoal é uma ferramenta indispensável para quem deseja organizar as finanças, controlar os gastos e alcançar metas financeiras. Seja para evitar surpresas no final do mês ou planejar o futuro com segurança, entender e aplicar o conceito pode transformar a relação com o dinheiro.</p>
+                    <h2 class="text-2xl font-bold text-white mt-8 mb-4">A Importância do Orçamento</h2>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li><strong>Planejar com antecedência:</strong> organizar suas finanças para lidar melhor com despesas futuras e imprevistos.</li>
+                        <li><strong>Evitar gastos desnecessários:</strong> identificar onde o dinheiro está sendo mal utilizado e redirecionar.</li>
+                        <li><strong>Reduzir o estresse:</strong> manter o controle evita surpresas desagradáveis e ajuda a lidar com as finanças de forma mais leve.</li>
+                    </ul>
+                    <h2 class="text-2xl font-bold text-white mt-8 mb-4">A Regra 50-30-20</h2>
+                    <p>A regra do 50-30-20 é uma diretriz de orçamento pessoal que divide o salário mensal em três categorias principais: 50% para despesas essenciais (aluguel, comida, saúde), 30% para gastos pessoais e estilo de vida, e 20% focados na criação do seu patrimônio e economia.</p>
+                </div>
+            </div>
+
+            <div id="artigo-2" class="hidden mt-4">
+                <h1 class="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">Como definir Metas Financeiras Altamente Eficazes</h1>
+                <div class="prose prose-invert max-w-none text-slate-300 space-y-6 text-lg leading-relaxed">
+                    <p>Sem um destino claro, qualquer caminho serve. No mundo das finanças, definir metas é o que transforma o ato de "guardar dinheiro" em uma jornada motivadora e realizadora.</p>
+                    <h2 class="text-2xl font-bold text-white mt-8 mb-4">Metodologia SMART</h2>
+                    <p>Para que uma meta funcione, ela precisa ser <strong>SMART</strong> (Específica, Mensurável, Alcançável, Relevante e Temporal):</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li><strong>Específica:</strong> Em vez de "quero viajar", use "quero viajar para a Europa".</li>
+                        <li><strong>Mensurável:</strong> Quanto custa? "A viagem custará R$ 10.000".</li>
+                        <li><strong>Temporal:</strong> Quando vai acontecer? "Daqui a 24 meses".</li>
+                    </ul>
+                    <p>Com essa clareza, você descobre exatamente quanto precisa poupar por mês (neste exemplo, cerca de R$ 416/mês). Isso traz previsibilidade e gamifica o processo de poupança.</p>
+                </div>
+            </div>
+
+            <div id="artigo-3" class="hidden mt-4">
+                <h1 class="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">O Fundo de Emergência: O seu escudo financeiro</h1>
+                <div class="prose prose-invert max-w-none text-slate-300 space-y-6 text-lg leading-relaxed">
+                    <p>O fundo de emergência é uma reserva financeira blindada e de altíssima liquidez (fácil de sacar), destinada exclusivamente a cobrir despesas imprevistas como manutenções na casa, problemas médicos ou a perda do emprego.</p>
+                    <h2 class="text-2xl font-bold text-white mt-8 mb-4">Qual deve ser o tamanho do seu fundo?</h2>
+                    <p>Especialistas financeiros concordam que o ideal é ter guardado um valor que cubra de <strong>3 a 6 meses do seu custo de vida essencial</strong>. Atenção: é o custo de vida, não o seu salário total.</p>
+                    <p>Se as suas despesas fixas para sobreviver (aluguel, luz, supermercado e plano de saúde) somam R$ 3.000 por mês, o seu fundo de emergência ideal deve estar entre R$ 9.000 e R$ 18.000.</p>
+                    <h2 class="text-2xl font-bold text-white mt-8 mb-4">Onde guardar?</h2>
+                    <p>Como emergências não têm hora para acontecer, este dinheiro <strong>nunca</strong> deve estar em investimentos de risco (como Ações) ou que prendam o seu dinheiro por muito tempo. Escolha CDBs de Liquidez Diária ou Tesouro Selic.</p>
+                </div>
+            </div>
+            
+            <div class="mt-12 p-8 bg-slate-800/50 rounded-2xl border border-slate-700 text-center">
+                <button id="btn-artigo-acessar" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 px-8 rounded-xl shadow-lg transition-all">Acessar Plataforma Orçamento 365</button>
+            </div>
+        </div>
+        
+        <footer class="py-6 text-center border-t border-slate-800/60 bg-slate-950 mt-auto">
+            <p class="text-slate-500 text-sm font-medium">&copy; 2026 Gustavo Regueira. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+    <div id="tela-login" class="fixed inset-0 bg-[#070a12]/95 backdrop-blur-md z-50 items-center justify-center p-4 hidden">
+        <div class="bg-slate-900 border border-slate-800 p-8 rounded-2xl shadow-2xl max-w-sm w-full space-y-6 text-center animate-fade relative">
+            <button id="btn-voltar-inicio" class="absolute top-4 left-4 text-slate-500 hover:text-white transition-colors text-sm">← Voltar</button>
+            <div class="pt-4">
+                <span class="text-2xl font-black tracking-wider text-blue-500 uppercase">Orçamento<span class="text-white">365</span></span>
             </div>
             <form id="form-login" class="space-y-4 text-left">
-                <div>
-                    <label for="login-user" class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Usuário</label>
-                    <input type="text" id="login-user" required placeholder="admin" class="w-full p-3 rounded-xl bg-slate-800 text-white border border-slate-700 focus:outline-none focus:border-blue-500 text-sm">
-                </div>
-                <div>
-                    <label for="login-pass" class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Senha</label>
-                    <input type="password" id="login-pass" required placeholder="••••••••" class="w-full p-3 rounded-xl bg-slate-800 text-white border border-slate-700 focus:outline-none focus:border-blue-500 text-sm">
-                </div>
-                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-xl transition-all shadow-md active:scale-[0.99] text-sm">
-                    Entrar no Painel
-                </button>
+                <input type="text" id="login-user" required placeholder="Usuário" class="w-full p-3 rounded-xl bg-slate-800 text-white border border-slate-700 text-sm">
+                <input type="password" id="login-pass" required placeholder="Senha" class="w-full p-3 rounded-xl bg-slate-800 text-white border border-slate-700 text-sm">
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-xl transition-all shadow-md text-sm">Entrar no Painel</button>
             </form>
             <p id="erro-login" class="text-xs text-rose-400 font-semibold hidden">Usuário ou senha incorretos!</p>
         </div>
@@ -36,91 +142,85 @@
         <div id="container-alertas" class="fixed top-4 right-4 z-50 space-y-2 max-w-sm w-full p-4" aria-live="assertive"></div>
 
         <nav class="max-w-7xl mx-auto p-4 flex flex-col sm:flex-row justify-between items-center gap-4 border-b border-slate-800 w-full">
-            <div class="flex items-center gap-2">
+            <div class="flex items-center gap-4">
                 <span class="text-xl font-black tracking-wider text-blue-500 uppercase">Orçamento<span class="text-white">365</span></span>
-                <span class="text-xs bg-blue-500/20 text-blue-400 px-2 py-0.5 rounded font-bold">v4.0</span>
+                <select id="filtro-global-ano" class="bg-slate-800 border border-slate-700 rounded-lg text-xs px-2 py-1 text-slate-300 focus:outline-none">
+                    <option value="2026" selected>Ano: 2026</option>
+                    <option value="2027">Ano: 2027</option>
+                    <option value="2025">Ano: 2025</option>
+                </select>
             </div>
             <div class="flex flex-wrap gap-2 bg-slate-900/80 p-1 rounded-xl border border-slate-800 justify-center">
                 <button id="btn-painel" class="nav-btn bg-blue-600 text-white text-sm font-medium px-4 py-2 rounded-lg shadow transition">Painel Geral</button>
                 <button id="btn-relatorios" class="nav-btn text-slate-400 hover:text-white text-sm font-medium px-4 py-2 transition">Relatórios & Gráficos</button>
-                <button id="btn-guia" class="nav-btn text-slate-400 hover:text-white text-sm font-medium px-4 py-2 transition">Guia de Investimentos</button>
-                <button id="btn-logout" class="text-rose-400 hover:text-rose-300 text-sm font-bold px-3 py-2 transition border-l border-slate-800 ml-2">Sair</button>
+                <button id="btn-previsao" class="nav-btn text-slate-400 hover:text-white text-sm font-medium px-4 py-2 transition">Previsão de Fim de Ano</button>
+                <button id="btn-logout" class="text-rose-400 hover:text-rose-300 text-sm font-bold px-3 py-2 border-l border-slate-800 ml-2">Sair</button>
             </div>
         </nav>
 
         <main class="max-w-5xl mx-auto px-4 py-10 w-full flex-grow">
-            
             <section id="aba-painel" class="grid grid-cols-1 lg:grid-cols-3 gap-6 animate-fade">
-                <div class="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-4" aria-label="Resumo Financeiro">
-                    <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl shadow-lg relative overflow-hidden group">
+                <div class="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl shadow-lg relative overflow-hidden">
                         <div class="absolute top-0 left-0 bottom-0 w-1 bg-emerald-500"></div>
-                        <h2 class="text-xs uppercase tracking-wider text-slate-400 font-bold">Total Receitas</h2>
+                        <h2 class="text-xs uppercase tracking-wider text-slate-400 font-bold">Total Receitas (<span class="txt-ano-contexto">2026</span>)</h2>
                         <p id="balanco-receitas" class="text-3xl font-black text-emerald-400 mt-2">R$ 0,00</p>
                     </div>
-                    <div id="card-saldo-total" class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl shadow-lg relative overflow-hidden group transition-all duration-300">
+                    <div id="card-saldo-total" class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl shadow-lg relative overflow-hidden transition-all duration-300">
                         <div id="barra-lateral-saldo" class="absolute top-0 left-0 bottom-0 w-1 bg-blue-500"></div>
-                        <h2 class="text-xs uppercase tracking-wider text-slate-400 font-bold">Total</h2>
-                        <p id="saldo-total" class="text-3xl font-black text-white mt-2" aria-live="polite">R$ 0,00</p>
+                        <h2 class="text-xs uppercase tracking-wider text-slate-400 font-bold">Saldo Atual (<span class="txt-ano-contexto">2026</span>)</h2>
+                        <p id="saldo-total" class="text-3xl font-black text-blue-400 mt-2">R$ 0,00</p>
                     </div>
                 </div>
 
-                <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl shadow-xl self-start" aria-label="Cadastrar Nova Transação">
+                <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl shadow-xl self-start">
                     <h2 class="text-lg font-bold mb-4 text-slate-200">Nova Transação</h2>
-                    <form id="form-transacao" class="space-y-4">
-                        <div>
-                            <label for="nome" class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Nome</label>
-                            <input type="text" id="nome" required autocomplete="off" placeholder="Ex: Salário, Mercado..." class="w-full p-3 rounded-xl bg-slate-800 text-white border border-slate-700 focus:outline-none focus:border-blue-500 transition-all placeholder:text-slate-600 text-sm">
-                        </div>
-                        <div>
-                            <label for="valor" class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Valor (R$)</label>
-                            <input type="number" id="valor" step="0.01" required placeholder="0,00" class="w-full p-3 rounded-xl bg-slate-800 text-white border border-slate-700 focus:outline-none focus:border-blue-500 transition-all placeholder:text-slate-600 text-sm">
-                        </div>
-                        <div>
-                            <label for="tipo" class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Tipo</label>
-                            <select id="tipo" class="w-full p-3 rounded-xl bg-slate-800 text-white border border-slate-700 focus:outline-none focus:border-blue-500 transition-all text-sm">
+                    <form id="form-transacao" class="space-y-3.5">
+                        <input type="text" id="nome" required placeholder="Nome (Ex: Mercado, Salário)..." class="w-full p-3 rounded-xl bg-slate-800 text-white border border-slate-700 text-sm focus:outline-none">
+                        <input type="number" id="valor" step="0.01" required placeholder="Valor (R$)" class="w-full p-3 rounded-xl bg-slate-800 text-white border border-slate-700 text-sm focus:outline-none">
+                        
+                        <div class="grid grid-cols-2 gap-2">
+                            <select id="tipo" class="w-full p-3 rounded-xl bg-slate-800 text-white border border-slate-700 text-xs focus:outline-none">
                                 <option value="receita">Receita (+)</option>
                                 <option value="despesa">Despesa (-)</option>
                             </select>
-                        </div>
-                        <div>
-                            <label for="mes" class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Mês de Referência</label>
-                            <select id="mes" class="w-full p-3 rounded-xl bg-slate-800 text-white border border-slate-700 focus:outline-none focus:border-blue-500 transition-all text-sm">
-                                <option value="Janeiro">Janeiro</option>
-                                <option value="Fevereiro">Fevereiro</option>
-                                <option value="Março">Março</option>
-                                <option value="Abril">Abril</option>
-                                <option value="Maio">Maio</option>
-                                <option value="Junho" selected>Junho</option>
-                                <option value="Julho">Julho</option>
-                                <option value="Agosto">Agosto</option>
-                                <option value="Setembro">Setembro</option>
-                                <option value="Outubro">Outubro</option>
-                                <option value="Novembro">Novembro</option>
-                                <option value="Dezembro">Dezembro</option>
+                            <select id="categoria" class="w-full p-3 rounded-xl bg-slate-800 text-white border border-slate-700 text-xs focus:outline-none">
+                                <option value="Moradia">Moradia</option>
+                                <option value="Alimentação">Alimentação</option>
+                                <option value="Transporte">Transporte</option>
+                                <option value="Lazer">Lazer</option>
+                                <option value="Saúde">Saúde</option>
+                                <option value="Educação">Educação</option>
+                                <option value="Outros" selected>Outros</option>
                             </select>
                         </div>
-                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-xl transition-all shadow-md active:scale-[0.99] text-sm">
-                            Adicionar Transação
-                        </button>
+
+                        <div class="grid grid-cols-2 gap-2">
+                            <select id="mes" class="w-full p-3 rounded-xl bg-slate-800 text-white border border-slate-700 text-xs focus:outline-none"></select>
+                            <select id="ano" class="w-full p-3 rounded-xl bg-slate-800 text-white border border-slate-700 text-xs focus:outline-none">
+                                <option value="2026" selected>2026</option>
+                                <option value="2027">2027</option>
+                                <option value="2025">2025</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-xl shadow-md text-sm transition-all">Adicionar</button>
                     </form>
                 </div>
 
-                <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl shadow-xl lg:col-span-2" aria-label="Histórico de Transações">
+                <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl shadow-xl lg:col-span-2">
                     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4">
                         <h2 class="text-lg font-bold text-slate-200">Histórico de Movimentações</h2>
                         <div class="flex gap-1 bg-slate-800 p-1 rounded-lg border border-slate-700">
-                            <button id="filtro-todos" onclick="filtrarLista('todos')" class="bg-blue-600 text-white text-xs px-2.5 py-1 rounded font-medium shadow transition">Todos</button>
-                            <button id="filtro-receitas" onclick="filtrarLista('receita')" class="text-slate-400 hover:text-white text-xs px-2.5 py-1 rounded font-medium transition">Receitas</button>
-                            <button id="filtro-despesas" onclick="filtrarLista('despesa')" class="text-slate-400 hover:text-white text-xs px-2.5 py-1 rounded font-medium transition">Despesas</button>
+                            <button id="btn-filtro-todos" class="bg-blue-600 text-white text-xs px-2.5 py-1 rounded">Todos</button>
+                            <button id="btn-filtro-receitas" class="text-slate-400 text-xs px-2.5 py-1 rounded">Receitas</button>
+                            <button id="btn-filtro-despesas" class="text-slate-400 text-xs px-2.5 py-1 rounded">Despesas</button>
                         </div>
                     </div>
                     <div class="overflow-x-auto rounded-xl border border-slate-800">
                         <table class="w-full text-left border-collapse">
                             <thead>
-                                <tr class="bg-slate-800/50 text-slate-400 text-xs uppercase tracking-wider font-bold">
-                                    <th class="p-4">Descrição/Mês</th>
-                                    <th class="p-4 text-right">Valor</th>
-                                    <th class="p-4 text-center w-20">Ações</th>
+                                <tr class="bg-slate-800/50 text-slate-400 text-xs uppercase font-bold">
+                                    <th class="p-4">Descrição / Detalhes</th><th class="p-4 text-right">Valor</th><th class="p-4 text-center">Ação</th>
                                 </tr>
                             </thead>
                             <tbody id="lista-transacoes" class="divide-y divide-slate-800 text-sm"></tbody>
@@ -130,48 +230,47 @@
             </section>
 
             <section id="aba-relatorios" class="hidden max-w-4xl mx-auto space-y-6 animate-fade">
-                <div class="bg-slate-900/60 border border-slate-800 p-8 rounded-2xl shadow-xl">
-                    <h2 class="text-xl font-black text-white mb-2">Relatórios Analíticos por Mês</h2>
-                    <p class="text-sm text-slate-400 mb-6">Abaixo, veja o gráfico comparativo de receitas vs despesas para cada mês.</p>
-                    
-                    <div class="mb-8 p-4 bg-blue-500/10 border border-blue-500/30 rounded-xl">
-                        <div class="flex items-center gap-2 text-blue-400 font-bold text-sm uppercase tracking-wider">
-                            <span>🔮 Simulador de Saúde Preditiva (IA Conceitual)</span>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl shadow-xl">
+                        <h3 class="text-base font-bold text-slate-200 mb-1 uppercase tracking-wider text-blue-400">📈 Evolução Temporal</h3>
+                        <p class="text-xs text-slate-400 mb-4">Saldo líquido acumulado mês a mês em <span class="txt-ano-contexto">2026</span>.</p>
+                        <div id="container-evolucao-temporal" class="space-y-3"></div>
+                    </div>
+                    <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl shadow-xl">
+                        <h3 class="text-base font-bold text-slate-200 mb-1 uppercase tracking-wider text-rose-400">📊 Detalhamento de Gastos</h3>
+                        <p class="text-xs text-slate-400 mb-4">Divisão proporcional por categorias de despesa.</p>
+                        <div id="container-detalhe-gastos" class="space-y-3"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="aba-previsao" class="hidden max-w-2xl mx-auto space-y-6 animate-fade">
+                <div class="bg-slate-900/60 border border-slate-800 p-8 rounded-2xl shadow-xl space-y-6 text-center">
+                    <div class="text-left">
+                        <h2 class="text-xl font-black text-white">🔮 Projeção de Encerramento Anual</h2>
+                        <p class="text-xs text-slate-400 mt-1">Cálculo preditivo estatístico focado no encerramento em 31 de Dezembro de <span class="txt-ano-contexto">2026</span>.</p>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
+                        <div class="bg-slate-950/40 p-4 border border-slate-800 rounded-xl">
+                            <span class="text-[10px] uppercase font-bold text-slate-500">Média de Ganhos Mensais</span>
+                            <p id="prev-media-ganho" class="text-lg font-black text-emerald-400 mt-1">R$ 0,00</p>
                         </div>
-                        <p id="texto-ia" class="text-xs text-slate-300 mt-2 italic">Aguardando dados para simular histórico...</p>
+                        <div class="bg-slate-950/40 p-4 border border-slate-800 rounded-xl">
+                            <span class="text-[10px] uppercase font-bold text-slate-500">Média de Gastos Mensais</span>
+                            <p id="prev-media-gasto" class="text-lg font-black text-rose-400 mt-1">R$ 0,00</p>
+                        </div>
                     </div>
-
-                    <div class="border border-slate-800 rounded-2xl p-6 bg-slate-950/40 space-y-6">
-                        <h3 class="text-sm font-bold text-slate-300 uppercase tracking-wider">Evolução Mensal (Gráfico de Barras)</h3>
-                        <div id="container-grafico" class="space-y-4">
-                            </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="aba-guia" class="hidden max-w-3xl mx-auto bg-slate-900/60 border border-slate-800 p-8 rounded-2xl shadow-xl animate-fade">
-                <h2 class="text-xl font-black text-white mb-2">Guia Prático de Investimentos</h2>
-                <p class="text-sm text-slate-400 mb-6">Sugestões de alocação com base na regra clássica de finanças.</p>
-                <div class="space-y-4">
-                    <div class="p-4 bg-emerald-500/10 border border-emerald-500/20 rounded-xl flex gap-4 items-start">
-                        <div class="bg-emerald-500/20 text-emerald-400 px-2.5 py-1 rounded font-bold text-sm">50%</div>
-                        <div><h3 class="font-bold text-slate-200 text-sm">Gastos Essenciais</h3><p class="text-xs text-slate-400 mt-1">Aluguel, luz, saúde e alimentação.</p></div>
-                    </div>
-                    <div class="p-4 bg-blue-500/10 border border-blue-500/20 rounded-xl flex gap-4 items-start">
-                        <div class="bg-blue-500/20 text-blue-400 px-2.5 py-1 rounded font-bold text-sm">30%</div>
-                        <div><h3 class="font-bold text-slate-200 text-sm">Investimentos & Reserva</h3><p class="text-xs text-slate-400 mt-1">Aportes focados em liquidez e construção de patrimônio futuro.</p></div>
-                    </div>
-                    <div class="p-4 bg-purple-500/10 border border-purple-500/20 rounded-xl flex gap-4 items-start">
-                        <div class="bg-purple-500/20 text-purple-400 px-2.5 py-1 rounded font-bold text-sm">20%</div>
-                        <div><h3 class="font-bold text-slate-200 text-sm">Lazer & Estilo de Vida</h3><p class="text-xs text-slate-400 mt-1">Hobbies e gastos supérfluos controlados.</p></div>
+                    <div class="p-6 bg-gradient-to-br from-blue-600/10 to-slate-900 border border-blue-500/30 rounded-2xl text-left">
+                        <h3 class="text-sm font-bold text-blue-400 uppercase tracking-wider">Resultado Esperado do Ano</h3>
+                        <p class="text-xs text-slate-400 mt-0.5">Se mantiver a média atual, este será o seu balanço final líquido acumulado:</p>
+                        <p id="prev-resultado-final" class="text-3xl font-black text-white mt-3">R$ 0,00</p>
                     </div>
                 </div>
             </section>
-
         </main>
-
-        <footer class="text-center text-xs text-slate-500 border-t border-slate-800/80 py-6 mt-auto w-full">
-            <p>&copy; 2026 Orçamento 365. Autenticação e Gráficos Responsivos.</p>
+        
+        <footer class="py-6 text-center border-t border-slate-800/60 bg-slate-950 mt-auto">
+            <p class="text-slate-500 text-sm font-medium">&copy; 2026 Gustavo Regueira. Todos os direitos reservados.</p>
         </footer>
     </div>
 
